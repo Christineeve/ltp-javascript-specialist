@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Request</title>
+    <script>
+    var xmlhttp;
+        
+    window.onload=function()
+    {
+        xmlhttp = new XMLHttpRequest();
+        document.getElementById('btnGetInfo').addEventListener('click', getService);
+    
+    function getService(e)
+        {
+            
+            var address = document.getElementById('address').value;
+            var url = "https://maps.googleapis.com/maps/api/geocode/xml?address=" + address + "&sensor=false";
+            xmlhttp.onreadystatechange = process;
+            console.log(url);       
+            xmlhttp.open("GET", url, true);
+        
+            //xmlhttp.open("POST", url, true);
+            //xmlhttp.setRequestHeader("wc", "1");
+            //xmlhttp.setRequestHeader("pc", "1");
+            //xmlhttp.setRequestHeader("sp", "n");
+            xmlhttp.send();            
+        }
+    }
+        
+    function process()
+    {
+        //alert(xmlhttp.readyState);
+        if(xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+         //alert the response.
+        //    alert(xmlhttp.responseText);
+        //send the response to the window.
+        //    document.getElementById('result').innerHTML = 
+        //        xmlhttp.responseText;
+          console.log(xmlhttp.responseXML);
+          console.log(xmlhttp.responseXML.documentElement);           
+            
+           //Get  just the address within the console. //xmlhttp.responseXML.documentElement.getElementsByTagName('result')[0].getElementsByTagName('formatted_address')[0].firstChild.nodeValue
+            
+            //get lat and long            //xmlhttp.responseXML.documentElement.getElementsByTagName('result')[0].getElementsByTagName('geometry')[0]
+            var lat =xmlhttp.responseXML.documentElement.getElementsByTagName('result')[0].getElementsByTagName('geometry')[0].getElementsByTagName('location')[0].getElementsByTagName('lat')[0].firstChild.nodeValue
+            
+            var long =          xmlhttp.responseXML.documentElement.getElementsByTagName('result')[0].getElementsByTagName('geometry')[0].getElementsByTagName('location')[0].getElementsByTagName('lng')[0].firstChild.nodeValue
+            
+            document.getElementById('result').innerHTML = "Lattitude: " + lat + "<br/> Longitude: " + long;
+            
+        }
+    }   
+    
+    </script>
+</head>
+<body>
+   <label for="address">Address:</label>
+    <input type="text" id="address" placeholder="Street City State">
+    <button id ="btnGetInfo"> Get Address Info</button>
+    <div id="result"></div>
+</body>
+</html>
