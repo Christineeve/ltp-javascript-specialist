@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Do While Looping</title>
+    <script>
+    window.onload=function()
+    {
+        var counter = 0;
+        do
+            {
+                document.getElementById('result').innerHTML += "<br/>" + counter;
+                counter++;
+            } while (counter < 15);
+        
+        //Do while will iterate at least once
+        var x = 1;
+        do
+        {
+            alert(x);
+            x--;
+        } while(x < 0)
+     
+    }
+        
+    </script>
+    </head>
+    <body>
+       <h1>Results with Popup:</h1>
+        <div id="result"></div>
+    </body>
+</html>

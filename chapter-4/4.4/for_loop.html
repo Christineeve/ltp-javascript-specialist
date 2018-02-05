@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>For Looping</title>
+    <script>
+    window.onload=function()
+    {
+        for(var x = 100; x > 0; x--)
+        {
+            if(x%2==0)
+            {
+                document.getElementById('result').innerHTML += x + "<br/>";
+            }
+        }
+        
+        
+       var out = "";
+        for(var counter = 0; counter < 45; counter++ )
+        {
+            out += counter;
+            out += "<br/>";
+        }
+        document.getElementById('result').innerHTML = out;
+    }
+        
+    </script>
+    </head>
+    <body>
+       <h1>My Results:</h1>
+        <div id="result"></div>
+    </body>
+</html>
