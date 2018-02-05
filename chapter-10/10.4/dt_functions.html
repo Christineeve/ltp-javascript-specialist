@@ -1,0 +1,20 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Date</title>
+        <script>
+        window.onload=function()
+        {
+          var d = new Date();
+          d.setFullYear(2020);
+          d.setHours(18);
+         // alert(d.getFullYear());
+          document.getElementById('result').innerHTML = d.toISOString();
+        
+        }
+        </script>
+    </head>
+    <body>
+        <div id="result"></div>
+    </body>
+</html>

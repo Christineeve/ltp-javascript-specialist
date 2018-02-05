@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Strings</title>
+<script>
+    window.onload=function()
+    {
+        var myString = "If you are strong enough, there are no precendents.";
+        var newString = myString.slice(5,15);
+        console.log(newString);
+        
+        var csv = "Mark,Brett,Joan,Kerri,Rick,Connor,Colleen";
+        var familyArray = csv.split(",");
+        console.log(familyArray);
+        for(var x =0;x < familyArray.length; x++)
+        {
+            document.getElementById('result').innerHTML+= familyArray[x] + "<br/>";
+        }
+        
+        var theString="Journey is the world's greatest band";
+        console.log(theString.substr(1,3));
+    }
+    
+</script>
+</head>
+<body>
+    <div id="result"></div>
+</body>
+</html>
