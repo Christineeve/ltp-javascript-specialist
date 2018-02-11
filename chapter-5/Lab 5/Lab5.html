@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lab 5 </title>
+  <script>
+    window.onload = function()
+    {
+      document.getElementById('hoursButton').addEventListener('click', runCheckHours)
+    };
+    function runCheckHours()
+	{
+      var hoursSlept = document.getElementById('hoursInput').value
+      checkHours(hoursSlept);
+    }
+    function checkHours(numHours)
+    {
+      if (numHours > 7.5) 
+	  {
+        return alert("You're getting too much sleep!")
+      } 
+	  else if (numHours ==7.5)
+	  {
+	    return alert("Perfect rest!")			  
+	  }
+    };
+  </script>
+  </head>
+<body>
+ <h1>You need perfect rest: 7.5 hours.</h1>
+ <h2>Enter your hours of rest.</h2>
+  <input id="hoursInput" type="number" />
+  <button id="hoursButton">Check</button>
+</body>
+
+</html>
